@@ -3,9 +3,14 @@ import java.util.*;
 import java.io.*;
 public class PageRank {
  
-    public int path[][] = new int[10][10];
+    public static int path[][] = new int[10][10];
     public double pagerank[] = new double[10];
- 
+ 	static int tempnode =0;
+ 	static int nodes =0;
+    static String name[] = new String[10];
+    static String namepath[][] = new String[10][10];
+
+
     public void calc(double totalNodes){
     
 	double InitialPageRank;
@@ -30,7 +35,7 @@ public class PageRank {
 	System.out.printf("\n Initial PageRank Values , 0th Step \n");
 	for(k=1;k<=totalNodes;k++)
 	    {
-		System.out.printf(" Page Rank of "+k+" is :\t"+this.pagerank[k]+"\n");
+		System.out.printf(" Page Rank of "+name[k]+" is :\t"+this.pagerank[k]+"\n");
 	    }  
   
 	while(ITERATION_STEP<=2) // Iterations
@@ -67,7 +72,7 @@ public class PageRank {
 		System.out.printf("\n After "+ITERATION_STEP+"th Step \n");
   
 		for(k=1;k<=totalNodes;k++) 
-		    System.out.printf(" Page Rank of "+k+" is :\t"+this.pagerank[k]+"\n"); 
+		    System.out.printf(" Page Rank of "+name[k]+" is :\t"+this.pagerank[k]+"\n"); 
   
 		ITERATION_STEP = ITERATION_STEP+1;
 	    }
@@ -82,25 +87,19 @@ public class PageRank {
 	System.out.printf("\n Final Page Rank : \n"); 
 	for(k=1;k<=totalNodes;k++)
 	    {
-		System.out.printf(" Page Rank of "+k+" is :\t"+this.pagerank[k]+"\n"); 
+		System.out.printf(" Page Rank of "+name[k]+" is :\t"+this.pagerank[k]+"\n"); 
 	    }
   
     } 
 
-    public static void main(String args[])
-    {
-        int nodes,i,j,cost;
-        int tempnode =0;
-        String tokens[];
-        String name[] = new String[10];
-        String namepath[][] = new String[10][10];
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter the Number of WebPages \n");
-        String aLine = in.nextLine();
+    static void ReadInput(){
+    	String tokens[];
+    	Scanner in = new Scanner(System.in);
+    	String aLine = in.nextLine();
 	    tokens = aLine.split(",");
 	    nodes = Integer.parseInt(tokens[0]);
 	    System.out.println(nodes);
-	    System.out.println("Enter the Adjacency Matrix with 1->PATH & 0->NO PATH Between two WebPages: \n");
+
 	    PageRank p = new PageRank();
         while ( in.hasNext() ) 
         {
@@ -112,16 +111,66 @@ public class PageRank {
 				namepath[tempnode][a]=tokens[a];				   
 			}
 		}
+		in.close();
+    }
 
-		for(i=1;i<=nodes;i++)
-        {
-        	System.out.println(name[i]);
-		    for(j=1;j<=nodes;j++)
+    static void convert(){
+    	for(int i=1;i<=nodes;i++)
+    	for(int j=1;j<=nodes;j++)
+    	{
+    		path[i][j]=0;
+    	}
+
+    	for(int i=1;i<=nodes;i++)
+    	{
+			for(int j=1;j<=nodes;j++)
 			{
-			    System.out.println(namepath[i][j]);
+				if(namepath[i][j] != null)
+				{
+					System.out.println("something not null find");
+					for(int k=1; k<=nodes;k++)
+					{
+						if(namepath[i][j].equals(name[k]) && !namepath[i][j].equals(name[i]))
+						{
+							System.out.println("find sth");
+							path[i][k] = 1;
+						}
+					}
+				}
 			}
+    	}    
+    }
+
+    public static void main(String args[])
+    {
+        // int i,j,cost;
+        // int tempnode =0;
+        // String name[] = new String[10];
+        // String namepath[][] = new String[10][10];
+        //System.out.println("Enter the Number of WebPages \n");
+	    //System.out.println("Enter the Adjacency Matrix with 1->PATH & 0->NO PATH Between two WebPages: \n");
+	    PageRank p = new PageRank();
+	    ReadInput();
+	    convert();
+		for(int i=1;i<=nodes;i++)
+        {
+        	System.out.println("The " + i+"th student is: "+name[i]);
+		    for(int j=1;j<=nodes;j++)
+			{
+			    System.out.print(namepath[i][j]+" ");
+			}
+			System.out.println("");
 		}
-        //p.calc(nodes);
+
+		for(int i=1;i<=nodes;i++)
+        {
+		    for(int j=1;j<=nodes;j++)
+			{
+			    System.out.print(path[i][j]+" ");
+			}
+			System.out.println("");
+		}
+        p.calc(nodes);
    
           
     }   
