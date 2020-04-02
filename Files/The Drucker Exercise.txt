@@ -1,0 +1,36 @@
+Jerry:
+what am I good at?
+	Excellent listener
+	Okey to follow through
+	Have some creative ideas
+how do I perform?
+	I am a minimalist
+	Of course always stay up very late
+what do I value?
+	Honesty 
+	Having fun 
+	Respect others
+what contribution can be expected from me on this project
+	Quality code works
+	Doing rigorous exploratory user tests
+	
+
+Miranda:
+What are your top three strengths?
+Attention to detail
+I get things done
+Follow through
+How do you perform?
+List maker
+Love eliminating waste
+Hate being micromanaged
+What are your values?
+Honesty
+Respect for others
+Doing a quality job
+Results can you contribute to the team
+A realistic plan 
+Quality code that works
+Rigorous exploratory testing
+
+

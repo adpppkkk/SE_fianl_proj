@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class pageRankTest 
+public class PageRankTest 
 {   
 
     @Rule

@@ -1,0 +1,5 @@
+Get String input -Done
+Convert String input into Matrix -Done
+Works -Done
+MVN tests -TODO
+Linear links weight -TODO

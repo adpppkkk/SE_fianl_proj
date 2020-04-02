@@ -98,7 +98,7 @@ public class PageRank {
     	String aLine = in.nextLine();
 	    tokens = aLine.split(",");
 	    nodes = Integer.parseInt(tokens[0]);
-	    System.out.println(nodes);
+	    //System.out.println(nodes);
 
 	    PageRank p = new PageRank();
         while ( in.hasNext() ) 
@@ -127,12 +127,12 @@ public class PageRank {
 			{
 				if(namepath[i][j] != null)
 				{
-					System.out.println("something not null find");
+					//System.out.println("something not null find");
 					for(int k=1; k<=nodes;k++)
 					{
 						if(namepath[i][j].equals(name[k]) && !namepath[i][j].equals(name[i]))
 						{
-							System.out.println("find sth");
+							//System.out.println("find sth");
 							path[i][k] = 1;
 						}
 					}
@@ -152,24 +152,24 @@ public class PageRank {
 	    PageRank p = new PageRank();
 	    ReadInput();
 	    convert();
-		for(int i=1;i<=nodes;i++)
-        {
-        	System.out.println("The " + i+"th student is: "+name[i]);
-		    for(int j=1;j<=nodes;j++)
-			{
-			    System.out.print(namepath[i][j]+" ");
-			}
-			System.out.println("");
-		}
+		// for(int i=1;i<=nodes;i++)
+  //       {
+  //       	System.out.println("The " + i+"th student is: "+name[i]);
+		//     for(int j=1;j<=nodes;j++)
+		// 	{
+		// 	    System.out.print(namepath[i][j]+" ");
+		// 	}
+		// 	System.out.println("");
+		// }
 
-		for(int i=1;i<=nodes;i++)
-        {
-		    for(int j=1;j<=nodes;j++)
-			{
-			    System.out.print(path[i][j]+" ");
-			}
-			System.out.println("");
-		}
+		// for(int i=1;i<=nodes;i++)
+  //       {
+		//     for(int j=1;j<=nodes;j++)
+		// 	{
+		// 	    System.out.print(path[i][j]+" ");
+		// 	}
+		// 	System.out.println("");
+		// }
         p.calc(nodes);
    
           
