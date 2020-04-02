@@ -90,19 +90,38 @@ public class PageRank {
     public static void main(String args[])
     {
         int nodes,i,j,cost;
+        int tempnode =0;
+        String tokens[];
+        String name[] = new String[10];
+        String namepath[][] = new String[10][10];
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the Number of WebPages \n");
-        nodes = in.nextInt();
-        PageRank p = new PageRank();
-        System.out.println("Enter the Adjacency Matrix with 1->PATH & 0->NO PATH Between two WebPages: \n");
-        for(i=1;i<=nodes;i++)
-	    for(j=1;j<=nodes;j++)
-		{
-		    p.path[i][j]=in.nextInt();
-		    if(j==i)
-			p.path[i][j]=0;
+        String aLine = in.nextLine();
+	    tokens = aLine.split(",");
+	    nodes = Integer.parseInt(tokens[0]);
+	    System.out.println(nodes);
+	    System.out.println("Enter the Adjacency Matrix with 1->PATH & 0->NO PATH Between two WebPages: \n");
+	    PageRank p = new PageRank();
+        while ( in.hasNext() ) 
+        {
+	        aLine = in.nextLine();
+	        tokens = aLine.split(",");	       	      
+	        name[++tempnode] = tokens[0];
+			for(int a=1;a<tokens.length;a++)
+			{
+				namepath[tempnode][a]=tokens[a];				   
+			}
 		}
-        p.calc(nodes);
+
+		for(i=1;i<=nodes;i++)
+        {
+        	System.out.println(name[i]);
+		    for(j=1;j<=nodes;j++)
+			{
+			    System.out.println(namepath[i][j]);
+			}
+		}
+        //p.calc(nodes);
    
           
     }   
