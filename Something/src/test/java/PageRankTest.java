@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.*;
@@ -87,6 +86,17 @@ public class PageRankTest
     }
 
     @Test
+    public void ConvertTest2(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"A"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
+    assertEquals("A", namepathTest[0][0]);
+    assertEquals(0, pr.path[0][0]);
+    }
+
+    @Test
     public void StepsPageRankTest(){
       //Variance of page rank on the different steps
       boolean testS1 = true;
@@ -116,8 +126,73 @@ public class PageRankTest
       assertTrue(testS2);
       assertTrue(testS3);
     }
-    
-  }
+
+    @Test
+    public void SizeNamesTest(){
+      //Make sure the quantity of students and ranks are equal
+      int case1 = pr.name.length;
+      int case2 = pr.pagerank.length;
+      assertTrue(case1 == case2);
+    }
+
+    @Test
+    public void SizePathTest(){
+      //Make sure the paths of names are preferences are equal
+      int case1 = pr.namepath.length;
+      int case2 = pr.path.length;
+      assertTrue(case1 == case2);
+    }
+
+    @Test
+    public void CalcTest(){
+      //Make sure the calc function is working correctly
+      int count = 0;
+      pr.calc(5);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        //Checking PageRank is always 0 or higher
+        if( !(pr.pagerank[i] >= 0) )
+          count++;
+      }
+      if(count > 0)
+        assertTrue(true);
+    }
+
+    @Test
+    public void OrderTest1(){
+      //Making sure the first person on namepath is always
+      //the first person in the name array
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        if(pr.name[i] != pr.namepath[i][0])
+          assertTrue(false);
+      }
+      assertTrue(true);
+    }
+
+    @Test
+    public void OrderTest2(){
+      String copy = pr.name[1];
+      pr.name[1] = "none";
+      //If changed the first person in array name
+      if(pr.name[1] == pr.namepath[1][0])
+        assertTrue(false);
+      else
+        pr.name[1] = copy; assertTrue(true);
+    }
+
+    @Test
+    public void OrderTest3(){
+      String copy = pr.namepath[2][0];
+      pr.namepath[2][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[2] == pr.namepath[2][0])
+        assertTrue(false);
+      else
+        pr.namepath[2][0] = copy; assertTrue(true);
+    }
+
+}
 
 
 
