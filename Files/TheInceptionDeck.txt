@@ -1,0 +1,22 @@
+Jerry and Miranda
+
+
+1. Why are we here? - We are here to help make groups where people are happy with their teammates by pagerank system.
+
+2. Elevator pitch - To do a program where groups are made, according to someone’s preference and the happiness is calculated.
+
+3. Product box - Rating Happiness. Great to use when making teams.
+
+4. NOT list - We are not going to do a few test cases.
+
+5. Meet the neighbors - Know more about the person’s preferences.
+
+6. Show solution - Do pagerank calculation to see how popular each people is.
+
+7. Up at night - Converting String Names into matrix.
+
+8. Size it up - 3 week project.
+
+9. What’s going to give - Out put of each round pagerank and the matrix at beginning.
+
+10. What’s it going to take - Many taste cases and functions that make sure the pagerank and function associated works.
