@@ -76,12 +76,75 @@ public class PageRankTest
     String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
     pr.convert();
     assertEquals("B", namepathTest[0][0]);
-    assertEquals(0, pr.path[0][0]);
+    }
+    @Test
+    public void ConvertTest3(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
     assertEquals("C", namepathTest[3][1]);
-    assertEquals(0, pr.path[3][1]);
+    }
+
+    @Test
+    public void ConvertTest4(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
     assertEquals("C", namepathTest[2][0]);
-    assertEquals(0, pr.path[2][0]);
+    }
+
+    @Test
+    public void ConvertTest5(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
     assertEquals("", namepathTest[4][0]);
+    assertEquals(0, pr.path[4][0]);
+    }
+
+    @Test
+    public void ConvertTest6(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
+    assertEquals(0, pr.path[3][1]);
+    }
+
+    @Test
+    public void ConvertTest7(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
+    assertEquals(0, pr.path[3][1]);
+    }
+
+    @Test
+    public void ConvertTest8(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
+    assertEquals(0, pr.path[2][0]);
+    }
+
+    @Test
+    public void ConvertTest9(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"B","C"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
     assertEquals(0, pr.path[4][0]);
     }
 
@@ -93,15 +156,22 @@ public class PageRankTest
     String namepathTest[][] = {{"A"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
     pr.convert();
     assertEquals("A", namepathTest[0][0]);
+    }
+
+    @Test
+    public void ConvertTest10(){
+    //Making sure the covert() is working well
+    //And about the data in the namepath array
+    String nameTest[] = {"A","B","C","D","E"};
+    String namepathTest[][] = {{"A"},{"A","C","D"},{"C","B"},{"A","C","B"},{""}};
+    pr.convert();
     assertEquals(0, pr.path[0][0]);
     }
 
     @Test
-    public void StepsPageRankTest(){
+    public void StepsPageRankTest1(){
       //Variance of page rank on the different steps
       boolean testS1 = true;
-      boolean testS2 = true;
-      boolean testS3 = true;
       int size = pr.name.length;
       //STEP # 1
       for(int i = 1; i < size; i++)
@@ -109,12 +179,31 @@ public class PageRankTest
         if(pr.pagerank[0] != pr.pagerank[i])
           testS1 = false;
       }
+      assertTrue(testS1);
+    }
+
+
+
+    @Test
+    public void StepsPageRankTest2(){
+      //Variance of page rank on the different steps
+      boolean testS2 = true;
+      int size = pr.name.length;
       //STEP # 2 (the different stages where pagerank is calculated)
       for(int i = 0; i < size; i++)
       {
         if(pr.pagerank[i] != 0)
           testS2 = false;
       }
+     
+      assertTrue(testS2);
+    }
+
+    @Test
+    public void StepsPageRankTest3(){
+      //Variance of page rank on the different steps
+      boolean testS3 = true;
+      int size = pr.name.length;
       // STEP # 3 (for the final rank)
       for(int i = 0; i < size; i++)
       {
@@ -122,14 +211,21 @@ public class PageRankTest
           testS3 = false;
       }
 
-      assertTrue(testS1);
-      assertTrue(testS2);
       assertTrue(testS3);
     }
+
 
     @Test
     public void SizeNamesTest(){
       //Make sure the quantity of students and ranks are equal
+      int case1 = 10;
+      int case2 = pr.namepath.length;
+      assertEquals(case1 , case2);
+    }
+
+    @Test
+    public void SizeNodessTest(){
+      //Make sure the quantity of students and nodes are equal
       int case1 = pr.name.length;
       int case2 = pr.pagerank.length;
       assertTrue(case1 == case2);
@@ -171,6 +267,7 @@ public class PageRankTest
     }
 
     @Test
+
     public void OrderTest2(){
       String copy = pr.name[1];
       pr.name[1] = "none";
@@ -192,6 +289,39 @@ public class PageRankTest
         pr.namepath[2][0] = copy; assertTrue(true);
     }
 
+    @Test
+    public void OrderTest4(){
+      String copy = pr.namepath[3][0];
+      pr.namepath[3][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[3] == pr.namepath[3][0])
+        assertTrue(false);
+      else
+        pr.namepath[3][0] = copy; assertTrue(true);
+    }
+
+
+    @Test
+    public void OrderTest5(){
+      String copy = pr.namepath[4][0];
+      pr.namepath[4][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[4] == pr.namepath[4][0])
+        assertTrue(false);
+      else
+        pr.namepath[4][0] = copy; assertTrue(true);
+    }
+
+    @Test
+    public void OrderTest6(){
+      String copy = pr.namepath[5][0];
+      pr.namepath[5][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[5] == pr.namepath[5][0])
+        assertTrue(false);
+      else
+        pr.namepath[5][0] = copy; assertTrue(true);
+    }
 }
 
 
