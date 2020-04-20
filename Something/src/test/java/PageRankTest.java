@@ -169,7 +169,7 @@ public class PageRankTest
     }
 
     @Test
-    public void StepsPageRankTest1(){
+    public void Step1PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS1 = true;
       int size = pr.name.length;
@@ -182,10 +182,8 @@ public class PageRankTest
       assertTrue(testS1);
     }
 
-
-
     @Test
-    public void StepsPageRankTest2(){
+    public void Step2PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS2 = true;
       int size = pr.name.length;
@@ -195,12 +193,12 @@ public class PageRankTest
         if(pr.pagerank[i] != 0)
           testS2 = false;
       }
-     
+
       assertTrue(testS2);
     }
 
     @Test
-    public void StepsPageRankTest3(){
+    public void Step3PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS3 = true;
       int size = pr.name.length;
@@ -213,7 +211,6 @@ public class PageRankTest
 
       assertTrue(testS3);
     }
-
 
     @Test
     public void SizeNamesTest(){
@@ -322,18 +319,162 @@ public class PageRankTest
       else
         pr.namepath[5][0] = copy; assertTrue(true);
     }
+
+    @Test
+    public void CheckingPageRankTest1(){
+      //To see if PageRank is greater than DampingFactor
+      //Make sure it changes
+      double case1 = pr.pagerank[1];
+      pr.pagerank[1] = 5;
+
+      assertTrue(case1 != pr.pagerank[1]);
+    }
+
+    @Test
+    public void CheckingPageRankTest2(){
+      //To see if PageRank is greater than DampingFactor
+      //Make sure it changes
+      double case1 = pr.pagerank[3];
+      pr.pagerank[3] = 2;
+
+      assertTrue(case1 != pr.pagerank[3]);
+    }
+
+    @Test
+    public void SwapNameTest1(){
+      String case1 = pr.namepath[2][3];
+      pr.namepath[2][2] = pr.namepath[2][3];
+
+      assertTrue(case1 == pr.namepath[2][2]);
+    }
+
+    @Test
+    public void SwapNameTest2(){
+      String case1 = pr.namepath[1][2];
+      pr.namepath[3][2] = pr.namepath[1][2];
+
+      assertTrue(case1 == pr.namepath[3][2]);
+    }
+
+    @Test
+    public void SwapNameTest3(){
+      String case1 = pr.namepath[4][4];
+      pr.namepath[1][3] = pr.namepath[4][4];
+
+      assertTrue(case1 == pr.namepath[1][3]);
+    }
+
+    @Test
+    public void SwapNameTest4(){
+      String case1 = pr.namepath[3][3];
+      pr.namepath[4][2] = pr.namepath[3][3];
+
+      assertTrue(case1 == pr.namepath[4][2]);
+    }
+
+    @Test
+    public void NoPreferenceTest1(){
+      //When there is no preference pagerank should be zero
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        for(int j = 1; j < pr.name.length; j++)
+        {
+          if(pr.namepath[i][j] == null)
+          {
+            assertTrue(pr.pagerank[i] == 0.0);
+          }
+        }
+      }
+    }
+
+    @Test
+    public void NoPreferenceTest2(){
+      //When the name of the student and the preference is the same
+      // the student does not have a preference, pagerank should be zero
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        for(int j = 1; j < pr.name.length; j++)
+        {
+          if(pr.namepath[i][j] == pr.name[i])
+          {
+            assertTrue(pr.pagerank[i] == 0.0);
+          }
+        }
+      }
+    }
+
+    @Test
+    public void ChangePageRankTest1(){
+      //Make sure that if path is changed the pagerank also changes
+      double case1 = pr.pagerank[3];
+      pr.path[2][3] = pr.path[3][3];
+
+      assertTrue(case1 == pr.pagerank[2]);
+    }
+
+    @Test
+    public void ChangePageRankTest2(){
+      //Make sure that if path is changed the pagerank also changes
+      double case1 = pr.pagerank[4];
+      pr.path[3][2] = pr.path[4][2];
+
+      assertTrue(case1 == pr.pagerank[3]);
+    }
+
+    @Test
+    public void ChangePageRankTest3(){
+      //Make sure that if path is changed the pagerank also changes
+      double case1 = pr.pagerank[2];
+      pr.path[1][2] = pr.path[2][2];
+
+      assertTrue(case1 == pr.pagerank[1]);
+    }
+
+    @Test
+    public void ReadingDataTest(){
+      //If pagerank changed
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        pr.pagerank[i] = 1.00;
+      }
+      //Convert function works
+      pr.convert();
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        assertTrue(pr.pagerank[i] == 1.00);
+      }
+    }
+
+    @Test
+    public void DataTest1(){
+      //Checking if pagerank changes after steps are done
+      double case1 = pr.pagerank[1];
+      pr.calc(5);
+      pr.convert();
+      double case2 = pr.pagerank[1];
+      assertTrue(case1 != case2);
+    }
+
+    @Test
+    public void DataTest2(){
+      //Checking if pagerank changes after steps are done
+      double case1 = pr.pagerank[2];
+      pr.calc(5);
+      pr.convert();
+      double case2 = pr.pagerank[2];
+      assertTrue(case1 != case2);
+    }
+
+    @Test
+    public void DataTest3(){
+      //Checking if pagerank changes after steps are done
+      double case1 = pr.pagerank[3];
+      pr.calc(5);
+      pr.convert();
+      double case2 = pr.pagerank[3];
+      assertTrue(case1 != case2);
+    }
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-    
