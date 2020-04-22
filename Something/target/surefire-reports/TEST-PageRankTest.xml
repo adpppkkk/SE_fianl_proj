@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="41" failures="0" name="PageRankTest" time="0.09" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="14+36-1461"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Git\SE_fianl_proj\Something"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\Git\SE_fianl_proj\Something"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="14+36-1461"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Je\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Program Files\apache-maven-3.6.3\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-14\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\apache-maven-3.6.3\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk-14\jre\bin;C:\Program Files\Java\jdk-14\bin;;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\Je\AppData\Local\Microsoft\WindowsApps;C:\Users\Je\AppData\Local\GitHubDesktop\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="maven.conf" value="C:\Program Files\apache-maven-3.6.3\bin\../conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="58.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Program Files\apache-maven-3.6.3\bin\..\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\Je"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="file.encoding" value="GBK"/>
+    <property name="java.specification.version" value="14"/>
+    <property name="user.name" value="Je"/>
+    <property name="java.class.path" value="C:\Program Files\apache-maven-3.6.3\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="14"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-14"/>
+    <property name="user.language" value="zh"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="14"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="ms936"/>
+    <property name="maven.home" value="C:\Program Files\apache-maven-3.6.3\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2020-03-17"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.stdout.encoding" value="ms936"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="PageRankTest" name="CalcTest" time="0.027"/>
+  <testcase classname="PageRankTest" name="ChangePageRankTest1" time="0"/>
+  <testcase classname="PageRankTest" name="ChangePageRankTest2" time="0.001"/>
+  <testcase classname="PageRankTest" name="ChangePageRankTest3" time="0"/>
+  <testcase classname="PageRankTest" name="CheckingPageRankTest1" time="0"/>
+  <testcase classname="PageRankTest" name="CheckingPageRankTest2" time="0.001"/>
+  <testcase classname="PageRankTest" name="ConvertTest" time="0"/>
+  <testcase classname="PageRankTest" name="ConvertTest10" time="0.001"/>
+  <testcase classname="PageRankTest" name="ConvertTest2" time="0"/>
+  <testcase classname="PageRankTest" name="ConvertTest3" time="0"/>
+  <testcase classname="PageRankTest" name="ConvertTest4" time="0.002"/>
+  <testcase classname="PageRankTest" name="ConvertTest5" time="0.002"/>
+  <testcase classname="PageRankTest" name="ConvertTest6" time="0"/>
+  <testcase classname="PageRankTest" name="ConvertTest7" time="0"/>
+  <testcase classname="PageRankTest" name="ConvertTest8" time="0.001"/>
+  <testcase classname="PageRankTest" name="ConvertTest9" time="0"/>
+  <testcase classname="PageRankTest" name="DataTest1" time="0.015"/>
+  <testcase classname="PageRankTest" name="DataTest2" time="0.011"/>
+  <testcase classname="PageRankTest" name="DataTest3" time="0.021"/>
+  <testcase classname="PageRankTest" name="NoPreferenceTest1" time="0"/>
+  <testcase classname="PageRankTest" name="NoPreferenceTest2" time="0"/>
+  <testcase classname="PageRankTest" name="OrderTest1" time="0"/>
+  <testcase classname="PageRankTest" name="OrderTest2" time="0.001"/>
+  <testcase classname="PageRankTest" name="OrderTest3" time="0"/>
+  <testcase classname="PageRankTest" name="OrderTest4" time="0"/>
+  <testcase classname="PageRankTest" name="OrderTest5" time="0.001"/>
+  <testcase classname="PageRankTest" name="OrderTest6" time="0"/>
+  <testcase classname="PageRankTest" name="PageRankTest" time="0"/>
+  <testcase classname="PageRankTest" name="ReadingDataTest" time="0.001"/>
+  <testcase classname="PageRankTest" name="SizeNamesTest" time="0"/>
+  <testcase classname="PageRankTest" name="SizeNodessTest" time="0"/>
+  <testcase classname="PageRankTest" name="SizePathTest" time="0.001"/>
+  <testcase classname="PageRankTest" name="Step1PageRankTest" time="0"/>
+  <testcase classname="PageRankTest" name="Step2PageRankTest" time="0"/>
+  <testcase classname="PageRankTest" name="Step3PageRankTest" time="0.001"/>
+  <testcase classname="PageRankTest" name="StudentPreferenceTest" time="0"/>
+  <testcase classname="PageRankTest" name="SwapNameTest1" time="0"/>
+  <testcase classname="PageRankTest" name="SwapNameTest2" time="0.001"/>
+  <testcase classname="PageRankTest" name="SwapNameTest3" time="0"/>
+  <testcase classname="PageRankTest" name="SwapNameTest4" time="0.001"/>
+  <testcase classname="PageRankTest" name="TotalNodesTest" time="0.001"/>
+</testsuite>
