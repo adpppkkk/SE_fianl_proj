@@ -240,7 +240,7 @@ public class PageRankTest
     }
 
     @Test
-    public void CalcTest(){
+    public void CalcTest1(){
       //Make sure the calc function is working correctly
       int count = 0;
       pr.calc(5);
@@ -252,6 +252,11 @@ public class PageRankTest
       }
       if(count > 0)
         assertTrue(true);
+    }
+
+    public void CalcTest2(){
+      pr.calc(5);
+      
     }
 
     @Test
@@ -300,7 +305,6 @@ public class PageRankTest
         pr.namepath[3][0] = copy; assertTrue(true);
     }
 
-
     @Test
     public void OrderTest5(){
       String copy = pr.namepath[4][0];
@@ -322,10 +326,49 @@ public class PageRankTest
       else
         pr.namepath[5][0] = copy; assertTrue(true);
     }
+
+    @Test
+    public void OrderTest7(){
+      String copy = pr.namepath[5][0];
+      pr.namepath[5][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[5] == pr.namepath[5][0])
+        assertTrue(false);
+      else
+        pr.namepath[5][0] = copy; assertTrue(true);
+    }
+    @Test
+    public void OrderTest8(){
+      String copy = pr.namepath[5][0];
+      pr.namepath[5][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[5] == pr.namepath[5][0])
+        assertTrue(false);
+      else
+        pr.namepath[5][0] = copy; assertTrue(true);
+    }
+    @Test
+    public void OrderTest9(){
+      String copy = pr.namepath[5][0];
+      pr.namepath[5][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[5] == pr.namepath[5][0])
+        assertTrue(false);
+      else
+        pr.namepath[5][0] = copy; assertTrue(true);
+    }
+
+    @Test
+    public void OrderTest10(){
+      String copy = pr.namepath[5][0];
+      pr.namepath[5][0] = "none";
+      //If changed the first person in array namepath
+      if(pr.name[5] == pr.namepath[5][0])
+        assertTrue(false);
+      else
+        pr.namepath[5][0] = copy; assertTrue(true);
+    }
 }
-
-
-
 
 
 
