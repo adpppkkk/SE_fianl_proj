@@ -7,4 +7,13 @@ Reading the Std String input
 Rendering the Matrix   
 
 
---------Week2--------- 
+--------Week2---------   
+Pagerank calculation  
+Fill up testcases  
+
+
+--------Week3---------    
+Linear pagerank  
+
+--------Week4---------  
+Linear pagerank done
