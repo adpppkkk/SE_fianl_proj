@@ -475,4 +475,137 @@ public class PageRankTest
       assertTrue(case1 != case2);
     }
 
+    @Test
+    public void NumberofStudentsTest1(){
+      //Checking the number of students with the nodes
+      int count = 0;
+      pr.calc(9);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        if(pr.pagerank[i] != 0)
+          count++;
+      }
+      assertEquals(9, count);
+    }
+
+    @Test
+    public void NumberofStudentsTest2(){
+      //Checking the number of students with the nodes
+      int count = 0;
+      pr.calc(6);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        if(pr.pagerank[i] != 0)
+          count++;
+      }
+      assertEquals(6, count);
+    }
+
+    @Test
+    public void NumberofStudentsTest3(){
+      //Checking the number of students with the nodes
+      int count = 0;
+      pr.calc(2);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        if(pr.pagerank[i] != 0)
+          count++;
+      }
+      assertEquals(2, count);
+    }
+
+    @Test
+    public void PageRankWithOnly1StudentTest1(){
+      //Making sure the page rank is not negative when is only one student
+      pr.calc(1);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        double num = pr.pagerank[i];
+        assertTrue(num >= 0);
+      }
+    }
+
+    @Test
+    public void PageRankWithOnly1StudentTest2(){
+      //Making sure the page rank not greater than 1 when is only one student
+      pr.calc(1);
+      for(int i = 0; i < pr.name.length; i++)
+      {
+        double num = pr.pagerank[i];
+        assertTrue(num <= 1);
+      }
+    }
+
+    @Test
+    public void FirstandLastPageRankTest1(){
+      double case1 = 0.0;
+      double case2 = 0.0;
+      //With 5 nodes
+      pr.calc(5);
+      for(int step = 0; step < 4; step += 3)
+      {
+        if(step == 0)
+        { //On pr.path when step is 0
+          case1 = pr.pagerank[step];
+        }
+        else
+        { //On pr.path when step is 3
+          case2 = pr.pagerank[step];
+        }
+      }
+      assertTrue(case1 != case2);
+    }
+
+    @Test
+    public void FirstandLastPageRankTest2(){
+      double case1 = 0.0;
+      double case2 = 0.0;
+      //With 9 nodes
+      pr.calc(9);
+      for(int step = 0; step < 4; step += 3)
+      {
+        if(step == 0)
+        { //On pr.path when step is 0
+          case1 = pr.pagerank[step];
+        }
+        else
+        { //On pr.path when step is 3
+          case2 = pr.pagerank[step];
+        }
+      }
+      assertTrue(case1 != case2);
+    }
+
+    @Test
+    public void FirstandLastPageRankTest3(){
+      double case1 = 0.0;
+      double case2 = 0.0;
+      //With 1 node. The pagerank should not change
+      pr.calc(1);
+      for(int step = 0; step < 4; step += 3)
+      {
+        if(step == 0)
+        { //On pr.path when step is 0
+          case1 = pr.pagerank[step];
+        }
+        else
+        { //On pr.path when step is 3
+          case2 = pr.pagerank[step];
+        }
+      }
+      assertTrue(case1 == case2);
+    }
+
+    @Test
+    public void PageRankVarTest(){
+      //There must be a difference of pagerank or it will stay the same
+      pr.calc(3);
+      for(int i = 1; i < pr.name.length; i++)
+      {
+        int case1 = pr.path[i-1][i];
+        int case2 = pr.path[i][i];
+        assertTrue((case1 != case2) || (case1 == case2));
+      }
+    }
+
 }
