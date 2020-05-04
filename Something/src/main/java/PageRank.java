@@ -4,7 +4,7 @@ import java.io.*;
 public class PageRank {
  
     public static int path[][] = new int[10][10];
-    public double pagerank[] = new double[10];
+    public static double pagerank[] = new double[10];
  	static int tempnode =0;
  	static int nodes =0;
     static String name[] = new String[10];
@@ -144,7 +144,7 @@ public class PageRank {
     	}    
     }
 
-    public static void GetUserArguments(String[] args){
+    static void GetUserArguments(String[] args){
 		// System.out.println( "try to get arguments" );
 		for (int i=0; i< args.length; i++) {
             // System.out.println("i: " + i + " is: " + args[i]);
@@ -160,6 +160,33 @@ public class PageRank {
 
         // System.out.println( "teamsize is : " + teamsize);
         // System.out.println( "verbosity is : " + verbosity);
+	}
+
+
+	static void Sort()
+	{
+		String tempname;
+		Double temprank;
+		for(int i=1; i<=nodes-1; i++)
+		{
+			for(int j=i; j<=nodes; j++)
+			{
+				if (pagerank[j] < pagerank[i])
+				{
+					temprank = pagerank[j];
+					tempname = name[j];
+					pagerank[j] = pagerank[i];
+					pagerank[i] = temprank;
+					name[j] = name[i];
+					name[i] = tempname;
+				}
+			}
+		}
+		System.out.printf("\n Final Page Rank after sort: \n"); 
+		for(int k=1;k<=nodes;k++)
+		{
+			System.out.printf(" Page Rank of "+name[k]+" is :\t"+pagerank[k]+"\n"); 
+		}
 	}
 
 
@@ -194,6 +221,7 @@ public class PageRank {
 			System.out.println("");
 		}
         p.calc(nodes);
+        Sort();
 
 
    
