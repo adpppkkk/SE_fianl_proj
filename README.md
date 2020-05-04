@@ -16,4 +16,7 @@ Fill up testcases
 Linear pagerank  
 
 --------Week4---------  
-Linear pagerank done
+Linear pagerank done  
+
+--------Week5---------  
+Adjust user input "v" and "t"

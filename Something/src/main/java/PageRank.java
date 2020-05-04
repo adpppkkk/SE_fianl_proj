@@ -10,6 +10,9 @@ public class PageRank {
     static String name[] = new String[10];
     static String namepath[][] = new String[10][10];
 
+    static int verbosity = 0;
+    static int teamsize = 3;
+
 
     public void calc(double totalNodes){
     
@@ -133,13 +136,32 @@ public class PageRank {
 						if(namepath[i][j].equals(name[k]) && !namepath[i][j].equals(name[i]))
 						{
 							//System.out.println("find sth");
-							path[i][k] = 1+nodes-j;
+							path[i][k] = 1;
 						}
 					}
 				}
 			}
     	}    
     }
+
+    public static void GetUserArguments(String[] args){
+		// System.out.println( "try to get arguments" );
+		for (int i=0; i< args.length; i++) {
+            // System.out.println("i: " + i + " is: " + args[i]);
+            
+            if (args[i].equals("-v")){
+            	verbosity = Integer.parseInt(args[i+1]);
+            	// System.out.println( "get verbosity" );
+            }if (args[i].equals("-t")){
+            	teamsize = Integer.parseInt(args[i+1]);
+            	// System.out.println( "get teamsize" );
+            }
+        }
+
+        // System.out.println( "teamsize is : " + teamsize);
+        // System.out.println( "verbosity is : " + verbosity);
+	}
+
 
     public static void main(String args[])
     {
@@ -151,6 +173,7 @@ public class PageRank {
 	    //System.out.println("Enter the Adjacency Matrix with 1->PATH & 0->NO PATH Between two WebPages: \n");
 	    PageRank p = new PageRank();
 	    ReadInput();
+	    GetUserArguments(args);
 	    convert();
 		for(int i=1;i<=nodes;i++)
         {
@@ -171,6 +194,8 @@ public class PageRank {
 			System.out.println("");
 		}
         p.calc(nodes);
+
+
    
           
     }   
