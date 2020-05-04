@@ -1,0 +1,17 @@
+Proposal for PageRankTeam
+
+Our goal is to make the teams that possibly everyone can satisfied with.
+
+We set a person's preference as 5,1,1,1,1,1 because everyone should has a person they really want to be with and several "okay" choices but cannot make them that happy and really not have that much difference for them with other people.
+
+We started to looking for the first choice from bottom because they are not that popular for most of students, if they can make pairs, that will be awesome. 
+
+If Nobody is found in those groups, We give them the person who has the highest pagerank because he was prefered by most people. (team should be happy to have a people that everyone wants)
+
+And we do same thing based on the last person in group.
+(using his preference to find next guy) Because we have already go through all people's preference that before
+we either
+#1 Find the first choice of him
+#2 Not find the first choice but give the highest reputation guy to group
+So this strategy should works fine
+And routine this process until the group is filled or all people have had a group.
