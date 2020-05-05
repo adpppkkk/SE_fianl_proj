@@ -3,15 +3,18 @@ import java.util.*;
 import java.io.*;
 public class PageRank {
  
-    public static int path[][] = new int[10][10];
-    public static double pagerank[] = new double[10];
+    public static int path[][] = new int[100][10];
+    public static double pagerank[] = new double[100];
  	static int tempnode =0;
  	static int nodes =0;
-    static String name[] = new String[10];
-    static String namepath[][] = new String[10][10];
+    static String name[] = new String[100];
+    static String namepath[][] = new String[100][10];
+    static String grouppath[][] = new String[100][10];
+    static String group[] = new String[100];
 
     static int verbosity = 0;
     static int teamsize = 3;
+    static int AmountofTeams = 1;
 
 
     public void calc(double totalNodes){
@@ -87,11 +90,15 @@ public class PageRank {
 	    } 
   
 	// Display PageRank
-	System.out.printf("\n Final Page Rank : \n"); 
-	for(k=1;k<=totalNodes;k++)
+	    if (verbosity >= 2)
 	    {
-		System.out.printf(" Page Rank of "+name[k]+" is :\t"+this.pagerank[k]+"\n"); 
+	    	System.out.printf("\n Final Page Rank : \n"); 
+			for(k=1;k<=totalNodes;k++)
+		    {
+				System.out.printf(" Page Rank of "+name[k]+" is :\t"+this.pagerank[k]+"\n"); 
+		    }
 	    }
+	
   
     } 
 
@@ -167,6 +174,7 @@ public class PageRank {
 	{
 		String tempname;
 		Double temprank;
+		String[] temppath;
 		for(int i=1; i<=nodes-1; i++)
 		{
 			for(int j=i; j<=nodes; j++)
@@ -175,18 +183,62 @@ public class PageRank {
 				{
 					temprank = pagerank[j];
 					tempname = name[j];
+					temppath = namepath[j];
 					pagerank[j] = pagerank[i];
 					pagerank[i] = temprank;
+					namepath[j] = namepath[j];
+					namepath[i] = temppath;
 					name[j] = name[i];
 					name[i] = tempname;
 				}
 			}
 		}
-		System.out.printf("\n Final Page Rank after sort: \n"); 
-		for(int k=1;k<=nodes;k++)
+		if (verbosity >= 1)
 		{
-			System.out.printf(" Page Rank of "+name[k]+" is :\t"+pagerank[k]+"\n"); 
+			System.out.printf("\n Final Page Rank after sort: \n"); 
+			for(int k=1;k<=nodes;k++)
+			{
+				System.out.printf(" Page Rank of "+name[k]+" is :\t"+pagerank[k]+"\n"); 
+			}
+		}		
+	}
+
+	static void Grouping()
+	{
+		if (nodes%teamsize ==0)
+			AmountofTeams = nodes/teamsize;
+		else
+			AmountofTeams = nodes/teamsize +1;
+
+		int index1 = 1;
+		int index2 = nodes;
+		for (int i=1;i<=nodes;i++)
+		{	
+			if (i%2 !=0)
+				group[i] = name[index1++];
+			else
+				group[i] = name[index2--];
 		}
+	}
+
+
+	public static void Output()
+	{
+		System.out.println("Pagerank Teams");
+		for (int i=1;i<=AmountofTeams;i++)
+		{
+			System.out.print("Team " + i + ": ");
+			for (int j=(i-1)*teamsize+1;j<=i*teamsize;j++)
+			{
+				if (group[j] != null)
+				{
+					System.out.print(group[j]+" ");
+				}
+			}
+			System.out.println("");
+		}
+		System.out.println("");
+
 	}
 
 
@@ -202,30 +254,39 @@ public class PageRank {
 	    ReadInput();
 	    GetUserArguments(args);
 	    convert();
-		for(int i=1;i<=nodes;i++)
-        {
-        	System.out.println("The " + i+"th student is: "+name[i]);
-		    for(int j=1;j<=nodes;j++)
-			{
-			    System.out.print(namepath[i][j]+" ");
+		
+		if (verbosity == 4)
+		{
+			for(int i=1;i<=nodes;i++)
+        	{
+        		System.out.println("The " + i+"th student is: "+name[i]);
+		    	for(int j=1;j<=nodes;j++)
+				{
+			    	System.out.print(namepath[i][j]+" ");
+				}
+				System.out.println("");
 			}
-			System.out.println("");
 		}
 
-		for(int i=1;i<=nodes;i++)
-        {
-		    for(int j=1;j<=nodes;j++)
-			{
-			    System.out.print(path[i][j]+" ");
+		if (verbosity >=3)
+		{
+			System.out.println("The matrix is:");
+			for(int i=1;i<=nodes;i++)
+	        {
+				for(int j=1;j<=nodes;j++)
+				{
+				    System.out.print(path[i][j]+" ");
+				}
+				System.out.println("");
 			}
-			System.out.println("");
 		}
+
         p.calc(nodes);
         Sort();
 
-
-   
-          
+        Grouping();
+        Output();
+        
     }   
 
 }
