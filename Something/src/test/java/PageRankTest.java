@@ -57,7 +57,7 @@ public class PageRankTest
 
     @Test
     public void StudentPreferenceTest(){
-      int size = pr.name.length;
+      int size = pr.nodes;
       for(int i = 0; i < size; i++)
       {
         //Making sure the first person is not included int the preference array
@@ -377,7 +377,7 @@ public class PageRankTest
       //When there is no preference pagerank should be zero
       for(int i = 0; i < pr.name.length; i++)
       {
-        for(int j = 1; j < pr.name.length; j++)
+        for(int j = 1; j < 10; j++)
         {
           if(pr.namepath[i][j] == null)
           {
@@ -393,7 +393,7 @@ public class PageRankTest
       // the student does not have a preference, pagerank should be zero
       for(int i = 0; i < pr.name.length; i++)
       {
-        for(int j = 1; j < pr.name.length; j++)
+        for(int j = 1; j < 10; j++)
         {
           if(pr.namepath[i][j] == pr.name[i])
           {
@@ -600,7 +600,7 @@ public class PageRankTest
     public void PageRankVarTest(){
       //There must be a difference of pagerank or it will stay the same
       pr.calc(3);
-      for(int i = 1; i < pr.name.length; i++)
+      for(int i = 1; i < 10; i++)
       {
         int case1 = pr.path[i-1][i];
         int case2 = pr.path[i][i];
