@@ -172,7 +172,7 @@ public class PageRankTest
     public void Step1PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS1 = true;
-      int size = pr.name.length;
+      int size = pr.nodes;
       //STEP # 1
       for(int i = 1; i < size; i++)
       {
@@ -186,7 +186,7 @@ public class PageRankTest
     public void Step2PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS2 = true;
-      int size = pr.name.length;
+      int size = pr.nodes;
       //STEP # 2 (the different stages where pagerank is calculated)
       for(int i = 0; i < size; i++)
       {
@@ -201,7 +201,7 @@ public class PageRankTest
     public void Step3PageRankTest(){
       //Variance of page rank on the different steps
       boolean testS3 = true;
-      int size = pr.name.length;
+      int size = pr.nodes;
       // STEP # 3 (for the final rank)
       for(int i = 0; i < size; i++)
       {
@@ -215,7 +215,7 @@ public class PageRankTest
     @Test
     public void SizeNamesTest(){
       //Make sure the quantity of students and ranks are equal
-      int case1 = 10;
+      int case1 = 100;
       int case2 = pr.namepath.length;
       assertEquals(case1 , case2);
     }
@@ -375,7 +375,7 @@ public class PageRankTest
     @Test
     public void NoPreferenceTest1(){
       //When there is no preference pagerank should be zero
-      for(int i = 0; i < pr.name.length; i++)
+      for(int i = 0; i < pr.nodes; i++)
       {
         for(int j = 1; j < 10; j++)
         {
@@ -391,7 +391,7 @@ public class PageRankTest
     public void NoPreferenceTest2(){
       //When the name of the student and the preference is the same
       // the student does not have a preference, pagerank should be zero
-      for(int i = 0; i < pr.name.length; i++)
+      for(int i = 0; i < pr.nodes; i++)
       {
         for(int j = 1; j < 10; j++)
         {
@@ -493,7 +493,7 @@ public class PageRankTest
       //Checking the number of students with the nodes
       int count = 0;
       pr.calc(6);
-      for(int i = 0; i < pr.name.length; i++)
+      for(int i = 1; i <= 6; i++)
       {
         if(pr.pagerank[i] != 0)
           count++;
@@ -506,7 +506,7 @@ public class PageRankTest
       //Checking the number of students with the nodes
       int count = 0;
       pr.calc(2);
-      for(int i = 0; i < pr.name.length; i++)
+      for(int i = 1; i <= 2; i++)
       {
         if(pr.pagerank[i] != 0)
           count++;
