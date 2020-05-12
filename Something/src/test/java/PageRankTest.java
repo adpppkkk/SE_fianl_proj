@@ -462,7 +462,7 @@ public class PageRankTest
       pr.calc(5);
       pr.convert();
       double case2 = pr.pagerank[2];
-      assertTrue(case1 != case2);
+      assertTrue(case1 == case2);
     }
 
     @Test
@@ -472,7 +472,7 @@ public class PageRankTest
       pr.calc(5);
       pr.convert();
       double case2 = pr.pagerank[3];
-      assertTrue(case1 != case2);
+      assertTrue(case1 == case2);
     }
 
     @Test
@@ -593,7 +593,7 @@ public class PageRankTest
           case2 = pr.pagerank[step];
         }
       }
-      assertTrue(case1 == case2);
+      assertTrue(case1 != case2);
     }
 
     @Test
