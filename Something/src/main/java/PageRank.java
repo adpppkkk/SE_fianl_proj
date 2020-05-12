@@ -105,9 +105,8 @@ public class PageRank {
     static void ReadInput(){
     	String tokens[];
     	Scanner in = new Scanner(System.in);
-    	String aLine = in.nextLine();
-	    tokens = aLine.split(",");
-	    nodes = Integer.parseInt(tokens[0]);
+    	String aLine;
+	    nodes = 0;
 	    //System.out.println(nodes);
 
 	    PageRank p = new PageRank();
@@ -120,8 +119,10 @@ public class PageRank {
 			{
 				namepath[tempnode][a]=tokens[a];				   
 			}
+			nodes++;
 		}
 		in.close();
+		//System.out.println("We have "+nodes+" Nodes!");
     }
 
     static void convert(){

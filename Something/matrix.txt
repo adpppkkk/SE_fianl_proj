@@ -1,4 +1,3 @@
-9
 Calvin,Bubba,Blinkendorfer,Suzie
 Bubba,Snoopie,Donald
 Blinkendorfer,Bubba,Billy,Ivanka
